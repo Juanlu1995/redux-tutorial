@@ -1,4 +1,5 @@
-import { action } from 'typesafe-actions/dist/action';
+import { action } from 'typesafe-actions';
+import { ActionTypes } from '../List/constants';
 
 export const addToList = (element: string) =>
   action(ActionTypes.ADD_TO_LIST, element);

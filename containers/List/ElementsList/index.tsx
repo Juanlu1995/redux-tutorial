@@ -1,22 +1,16 @@
 import React from 'react';
 import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemText from '@mui/material/ListItemText';
+import { useSelector } from 'react-redux';
+import { RootState } from '../../rootReducer';
+import ListItemComponent from '../../../components/ListItem';
 
 const ElementsList = () => {
+  const list = useSelector((state: RootState) => state.list.list);
   return (
     <List sx={{ borderLeft: 1, borderColor: 'primary.main' }}>
-      <ListItem disablePadding>
-        <ListItemButton>
-          <ListItemText primary="Trash" />
-        </ListItemButton>
-      </ListItem>
-      <ListItem disablePadding>
-        <ListItemButton component="a" href="#simple-list">
-          <ListItemText primary="Spam" />
-        </ListItemButton>
-      </ListItem>
+      {list.map((item) => (
+        <ListItemComponent item={item.name} key={item.id} />
+      ))}
     </List>
   );
 };
