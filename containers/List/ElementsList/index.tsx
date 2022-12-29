@@ -6,7 +6,7 @@ import ListItemText from '@mui/material/ListItemText';
 
 const ElementsList = () => {
   return (
-    <List>
+    <List sx={{ borderLeft: 1, borderColor: 'primary.main' }}>
       <ListItem disablePadding>
         <ListItemButton>
           <ListItemText primary="Trash" />

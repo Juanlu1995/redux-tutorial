@@ -5,7 +5,7 @@ import RemoveInput from '../Inputs/RemoveInput';
 
 const Inputs = () => {
   return (
-    <Box sx={{ m: 2, p: 2 }}>
+    <Box sx={{ mx: 2 }}>
       <AddInput />
       <RemoveInput />
     </Box>

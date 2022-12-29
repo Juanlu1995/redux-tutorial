@@ -1,19 +1,15 @@
 import { ListActions, ListState } from '../List/types';
 import { v4 as uuidv4 } from 'uuid';
-
-interface Props {
-  readonly state: ListState;
-  readonly action: ListActions;
-}
+import { ActionTypes } from '../List/constants';
 
 const INITIAL_STATE: ListState = {
   list: [],
 };
 
-export const reducer = ({
-  state = INITIAL_STATE,
-  action,
-}: Props): ListState => {
+export const reducer = (
+  state: ListState = INITIAL_STATE,
+  action: ListActions
+): ListState => {
   switch (action.type) {
     case ActionTypes.ADD_TO_LIST: {
       return {
