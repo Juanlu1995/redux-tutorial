@@ -1,6 +1,6 @@
 import { Box } from '@mui/material';
-import ElementsList from './containers/ElementsList';
-import Inputs from './containers/Inputs';
+import ElementsList from './containers/List/ElementsList';
+import Inputs from './containers/List/Inputs';
 import './style.css';
 
 export default function App() {
