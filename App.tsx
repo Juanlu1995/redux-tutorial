@@ -1,12 +1,11 @@
 import { Box } from '@mui/material';
 import { Provider } from 'react-redux';
-import configureStore from './configureStore';
+import store from './store';
 import ElementsList from './containers/List/ElementsList';
 import Inputs from './containers/List/Inputs';
 import './style.css';
 
 export default function App() {
-  const store = configureStore();
   return (
     <Provider store={store}>
       <Box

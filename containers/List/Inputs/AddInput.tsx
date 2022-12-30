@@ -1,10 +1,11 @@
 import { Button, Input, Stack } from '@mui/material';
 import React, { FormEvent, useRef } from 'react';
 import { useDispatch } from 'react-redux';
+import { useAppDispatch } from '../../../hooks';
 import { addToList } from '../../List/actions';
 
 const AddInput = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const inputRef = useRef(null);
   const handleSubmit = (event: FormEvent) => {
     event.preventDefault();

@@ -4,11 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import { Item } from '../../../types';
 import { removeFromList } from '../../List/actions';
 import { makeSelectList } from '../../List/selectors';
+import { useAppDispatch } from '../../../hooks';
 interface Option extends Item {
   readonly label: string;
 }
 const RemoveInput = () => {
-  const dispatch = useDispatch();
+  const dispatch = useAppDispatch();
   const list = useSelector(makeSelectList);
   const options: Option[] = list.map((element: Item) => ({
     ...element,
@@ -24,7 +25,7 @@ const RemoveInput = () => {
       disablePortal
       id="combo-box-demo"
       options={options}
-      renderInput={(params) => <TextField {...params} label="Element" />}
+      renderInput={(params) => <TextField {...params} label="Item" />}
       onChange={handleChange}
     />
   );
