@@ -1,13 +1,31 @@
-import { Autocomplete, Input, TextField } from '@mui/material';
-
+import React from 'react';
+import { Autocomplete, TextField } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { Item } from '../../../types';
+import { RootState } from '../../rootReducer';
+import { removeFromList } from '../../List/actions';
+interface Option extends Item {
+  readonly label: string;
+}
 const RemoveInput = () => {
-  const elements = ['asdasd'];
+  const dispatch = useDispatch();
+  const list = useSelector((state: RootState) => state.list.list);
+  const options: Option[] = list.map((element: Item) => ({
+    ...element,
+    label: element.name,
+  }));
+  const handleChange = (event: any, newValue: Option | null) => {
+    if (newValue) {
+      dispatch(removeFromList(newValue.id));
+    }
+  };
   return (
     <Autocomplete
       disablePortal
       id="combo-box-demo"
-      options={elements}
+      options={options}
       renderInput={(params) => <TextField {...params} label="Element" />}
+      onChange={handleChange}
     />
   );
 };
