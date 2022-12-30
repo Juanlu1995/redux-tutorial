@@ -2,14 +2,14 @@ import React from 'react';
 import { Autocomplete, TextField } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { Item } from '../../../types';
-import { RootState } from '../../rootReducer';
 import { removeFromList } from '../../List/actions';
+import { makeSelectList } from '../../List/selectors';
 interface Option extends Item {
   readonly label: string;
 }
 const RemoveInput = () => {
   const dispatch = useDispatch();
-  const list = useSelector((state: RootState) => state.list.list);
+  const list = useSelector(makeSelectList);
   const options: Option[] = list.map((element: Item) => ({
     ...element,
     label: element.name,
